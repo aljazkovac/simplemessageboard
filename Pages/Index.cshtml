@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Message Board";
+}
+
+<div class="container">
+    <h1 class="mb-4">Simple Message Board</h1>
+    
+    <form method="post" class="mb-4">
+        <div class="form-group">
+            <label for="newMessage">Post a message:</label>
+            <textarea asp-for="NewMessage" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Post</button>
+    </form>
+
+    <div class="messages">
+        @foreach (var message in Model.Messages.OrderByDescending(m => m.PostedAt))
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">@message.Text</p>
+                    <small class="text-muted">Posted at: @message.PostedAt</small>
+                </div>
+            </div>
+        }
+    </div>
+</div>
