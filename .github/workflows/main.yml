@@ -31,7 +31,6 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/project-homework:latest
     
     - name: Update DigitalOcean App Platform deployment
-      uses: digitalocean/app_action@main
+      uses: digitalocean/app_action/deploy@6a94fd3f3a70f194208a25f800c098bc2fe89d65
       with:
-        app_name: lionfish-app
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
