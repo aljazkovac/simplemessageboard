@@ -29,3 +29,9 @@ jobs:
         push: true
         platforms: linux/amd64,linux/arm64
         tags: ${{ secrets.DOCKER_USERNAME }}/project-homework:latest
+    
+    - name: Update DigitalOcean App Platform deployment
+      uses: digitalocean/app_action@main
+      with:
+        app_name: lionfish-app
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
